@@ -1,3 +1,4 @@
+import 'package:atividade_2/frames/frame.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,12 +10,37 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: "Pontuador boliche",
       home: Scaffold(
         body: Center(
-          child: Text('Hello World!'),
+          child: Boliche(),
         ),
       ),
+    );
+  }
+}
+
+class Boliche extends StatefulWidget {
+  @override
+  _BolichePont createState() => _BolichePont();
+}
+
+class _BolichePont extends State<Boliche> {
+  late int ant;
+  List<Frames> frames = List.generate(9, (index) => Frames(key: UniqueKey()));
+  void verifica() {}
+
+  void pontos() {}
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        Row(
+          children: frames.map((frame) => Expanded(child: frame)).toList(),
+        ),
+      ],
     );
   }
 }
