@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
 
 class Frames extends StatefulWidget {
-  Frames({Key? key}) : super(key: key);
+  final String? score1Value;
+  final String? score2Value;
+  final String? total;
+  Frames({Key? key, this.score1Value, this.score2Value, this.total})
+      : super(key: key);
 
   @override
   _frame createState() => _frame();
 }
 
 class _frame extends State<Frames> {
-  TextEditingController? score1 = TextEditingController();
-  TextEditingController? score2 = TextEditingController();
-  TextEditingController? total = TextEditingController();
+  TextEditingController? score1;
+  TextEditingController? score2;
+  TextEditingController? total;
+
+  @override
+  void initState() {
+    super.initState();
+    score1 = TextEditingController(text: widget.score1Value);
+    score2 = TextEditingController(text: widget.score2Value);
+    total = TextEditingController(text: widget.total);
+  }
 
   @override
   Widget build(BuildContext context) {
